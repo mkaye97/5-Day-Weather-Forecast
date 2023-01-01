@@ -1,4 +1,4 @@
-var apiKey = '60c3eea7f8396024e6ea304c296ccf7a';
+var apiKey = '';
 var city = document.getElementById('cityInput');
 var searchButton = document.getElementById('search-button');
 var lat = '33.71745'
