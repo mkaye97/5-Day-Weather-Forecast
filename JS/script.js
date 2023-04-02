@@ -10,18 +10,14 @@ var icon = document.getElementsByClassName('icon');
 var temp = document.getElementsByClassName('temp');
 var wind = document.getElementsByClassName('wind');
 var humidity = document.getElementsByClassName('humid');
+var historyName = document.getElementsByClassName('hist-name');
+var historyCard = document.getElementsByClassName('hist-card');
 
 var lat;
 var lon;
 
-var searchHistory = [];
+var searchHistory = localStorage.getItem('Search History');
 var weatherData = [];
-
-// var icon;
-var iconURL = 'http://openweathermap.org/img/w/' + icon + '.png';
-
-
-
 
 function getCities() {
     var citySearch = city.value.trim();
@@ -29,11 +25,12 @@ function getCities() {
     fetch(geoSearchURL)
         .then(function (response) {
             response.json().then(function (data) {
+                console.log(data);
                 lat = data[0].lat.toString();
                 lon = data[0].lon.toString();
-                searchHistory.splice(0, 0, data[0].name);
-                console.log(searchHistory);
-                new newWeatherPost(lat, lon);
+                newWeatherPost(lat, lon);
+                var newHist = data[0].name;
+                setHistory(newHist);
             }
             )
         });
@@ -45,9 +42,6 @@ function newWeatherPost(coor1, coor2) {
         .then(function (response) {
             response.json().then(function (data) {
                 console.log(data);
-                
-                // cityName.innerHTML = data.city.name;
-                console.log('HERE');
                 weatherData = []
                 for (var i = 0; i < data.list.length; i++) {
                     var arry = data.list[i].dt_txt.split(' ')
@@ -57,8 +51,9 @@ function newWeatherPost(coor1, coor2) {
                 }
                 console.log(weatherData);
                 forecastCity.textContent = data.city.name + ', ' + data.city.country;
-                for (var i=0; i < weatherData.length; i++) {
-                    var workingDate = weatherData[i].dt_txt.split(' ')
+                for (var i = 0; i < weatherData.length; i++) {
+                    var workingDate = weatherData[i].dt_txt.split(' ');
+                    forecast.classList.remove('invisible');
                     days[i].textContent = workingDate[0];
                     icon[i].src = 'http://openweathermap.org/img/w/' + weatherData[i].weather[0].icon + '.png';
                     icon[i].alt = weatherData[i].weather[0].main;
@@ -68,6 +63,16 @@ function newWeatherPost(coor1, coor2) {
                 }
             })
         });
+};
+
+function setHistory(name) {
+    if (searchHistory === null) {
+        searchHistory = [name];
+        localStorage.setItem('Search History', searchHistory);
+    } else {
+        searchHistory = searchHistory + ', ' + name;
+        localStorage.setItem('Search History', searchHistory);
+    };
 };
 
 searchButton.addEventListener("click", getCities);

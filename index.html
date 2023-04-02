@@ -23,17 +23,64 @@
     <div class="form-floating mb-3 col-12 col-md-3">
       <input type="input" class="form-control" id="cityInput" placeholder="Search for a city...">
       <label for="floatingInput">Search for a city...</label>
-      <ul id=codes class=mb-3>
-
-      </ul>
+      
       <br>
       <button id="search-button" type="button" class="btn btn-secondary col-12">Search</button>
       <br>
       <br>
       <div>
-        <h2>Search History</h2>
+        <h2 class="text-light">Search History</h2>
         <ul class="list-group" id="cityHistory">
-
+          <li class="card invisible">
+            <div class="card-body mx-auto">
+              <h5 class="card-title hist-name">Card title</h5>
+            </div>
+          </li>
+          <li class="card invisible hist-card">
+            <div class="card-body mx-auto">
+              <h5 class="card-title hist-name">Card title</h5>
+            </div>
+          </li>
+          <li class="card invisible hist-card">
+            <div class="card-body mx-auto">
+              <h5 class="card-title hist-name">Card title</h5>
+            </div>
+          </li>
+          <li class="card invisible hist-card">
+            <div class="card-body mx-auto">
+              <h5 class="card-title hist-name">Card title</h5>
+            </div>
+          </li>
+          <li class="card invisible hist-card">
+            <div class="card-body mx-auto">
+              <h5 class="card-title hist-name">Card title</h5>
+            </div>
+          </li>
+          <li class="card invisible hist-card">
+            <div class="card-body mx-auto">
+              <h5 class="card-title hist-name">Card title</h5>
+            </div>
+          </li>
+          <li class="card invisible hist-card">
+            <div class="card-body mx-auto">
+              <h5 class="card-title hist-name">Card title</h5>
+            </div>
+          </li>
+          <li class="card invisible hist-card">
+            <div class="card-body mx-auto">
+              <h5 class="card-title hist-name">Card title</h5>
+            </div>
+          </li>
+          <li class="card invisible hist-card">
+            <div class="card-body mx-auto">
+              <h5 class="card-title hist-name">Card title</h5>
+            </div>
+          </li>
+          <li class="card invisible hist-card">
+            <div class="card-body mx-auto">
+              <h5 class="card-title hist-name">Card title</h5>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
@@ -42,9 +89,9 @@
       <h3 class="card-header">Today's Weather</h3>
       <div class="card-body">
         <h5 class="card-title" id="city-name"></h5>
-        <ul class="row justify-content-center" id="forecast">
+        <ul class="row justify-content-center invisible" id="forecast">
           <!-- Insert 5 Day Forecast Line Items -->
-          <div class="card col">
+          <li class="card col">
             <div class="card-body mx-auto">
               <h5 class="card-title date">Card title</h5>
               <img src="" alt="" class="icon"/>
@@ -52,8 +99,8 @@
               <p class="card-text wind"></p>
               <p class="card-text humid"></p>
             </div>
-          </div>
-          <div class="card col">
+          </li>
+          <li class="card col">
             <div class="card-body mx-auto">
               <h5 class="card-title date">Card title</h5>
               <img src="" alt="" class="icon"/>
@@ -61,8 +108,8 @@
               <p class="card-text wind"></p>
               <p class="card-text humid"></p>
             </div>
-          </div>
-          <div class="card col">
+          </li>
+          <li class="card col">
             <div class="card-body mx-auto">
               <h5 class="card-title date">Card title</h5>
               <img src="" alt="" class="icon"/>
@@ -70,8 +117,8 @@
               <p class="card-text wind"></p>
               <p class="card-text humid"></p>
             </div>
-          </div>
-          <div class="card col">
+          </li>
+          <li class="card col">
             <div class="card-body mx-auto">
               <h5 class="card-title date">Card title</h5>
               <img src="" alt="" class="icon"/>
@@ -79,8 +126,8 @@
               <p class="card-text wind"></p>
               <p class="card-text humid"></p>
             </div>
-          </div>
-          <div class="card col">
+          </li>
+          <li class="card col">
             <div class="card-body mx-auto">
               <h5 class="card-title date">Card title</h5>
               <img src="" alt="" class="icon"/>
@@ -88,7 +135,7 @@
               <p class="card-text wind"></p>
               <p class="card-text humid"></p>
             </div>
-          </div>
+          </li>
           <!-- End Forecast Items -->
         </ul>
       </div>
