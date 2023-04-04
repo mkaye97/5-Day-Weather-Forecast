@@ -11,7 +11,7 @@ var temp = document.getElementsByClassName('temp');
 var wind = document.getElementsByClassName('wind');
 var humidity = document.getElementsByClassName('humid');
 var historyName = document.getElementsByClassName('hist-name');
-var historyCard = document.getElementsByClassName('hist-card');
+var historyButtons = document.getElementsByClassName('hist-card');
 
 var lat;
 var lon;
@@ -70,9 +70,48 @@ function setHistory(name) {
         searchHistory = [name];
         localStorage.setItem('Search History', searchHistory);
     } else {
-        searchHistory = searchHistory + ', ' + name;
+        searchHistory = name + ', ' + searchHistory;
         localStorage.setItem('Search History', searchHistory);
+        appendHistory();
     };
 };
 
+function appendHistory() {
+    
+    if (searchHistory == null) {
+        console.log('No search history.');
+    } else if (searchHistory !== null && searchHistory.split(', ').length < 10) {
+        var appendList = searchHistory.split(', ');
+        for (var i = 0; i < appendList.length; i++) {
+            historyName[i].textContent = appendList[i];
+            historyButtons[i].classList.remove('invisible');
+            // historyButtons[i].addEventListener("click", historySearch);
+        }
+    } else {
+        var appendList = searchHistory.split(', ');
+        for (var i = 0; i < 10; i++) {
+            historyName[i].textContent = appendList[i];
+            historyButtons[i].classList.remove('invisible');
+            // historyButtons[i].addEventListener("click", historySearch);
+        }
+    }
+};
+
+function historySearch(histCity) {
+    var geoSearchURL = 'https://api.openweathermap.org/geo/1.0/direct?q=' + histCity + '&limit=1&appid=' + apiKey;
+    fetch(geoSearchURL)
+        .then(function (response) {
+            response.json().then(function (data) {
+                console.log(data);
+                lat = data[0].lat.toString();
+                lon = data[0].lon.toString();
+                newWeatherPost(lat, lon);
+            }
+            )
+        });
+};
+
+appendHistory();
+
 searchButton.addEventListener("click", getCities);
+
