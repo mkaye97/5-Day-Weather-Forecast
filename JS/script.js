@@ -18,6 +18,7 @@ var lon;
 
 var searchHistory = localStorage.getItem('Search History');
 var weatherData = [];
+console.log(searchHistory);
 
 function getCities() {
     var citySearch = city.value.trim();
@@ -28,9 +29,9 @@ function getCities() {
                 console.log(data);
                 lat = data[0].lat.toString();
                 lon = data[0].lon.toString();
+                console.warn("Get Cities Triggered");
                 newWeatherPost(lat, lon);
-                var newHist = data[0].name;
-                setHistory(newHist);
+                setHistory(data[0].name);
             }
             )
         });
@@ -67,32 +68,47 @@ function newWeatherPost(coor1, coor2) {
 
 function setHistory(name) {
     if (searchHistory === null) {
-        searchHistory = [name];
+        searchHistory = name;
+        console.warn("Set History Triggered");
         localStorage.setItem('Search History', searchHistory);
+        appendHistory();
     } else {
         searchHistory = name + ', ' + searchHistory;
         localStorage.setItem('Search History', searchHistory);
+        console.warn("Set History Triggered");
         appendHistory();
     };
 };
 
 function appendHistory() {
-    
+    console.warn("Append History Triggered");
     if (searchHistory == null) {
         console.log('No search history.');
-    } else if (searchHistory !== null && searchHistory.split(', ').length < 10) {
+    } else if (searchHistory.split(' ').length === 1) {
+        historyName[0].textContent = searchHistory;
+        historyButtons[0].classList.remove('invisible');
+        historyButtons[0].addEventListener("click", function (event) {
+            historySearch(event.target.textContent);
+        });
+    } else if (searchHistory.split(', ').length < 10) {
         var appendList = searchHistory.split(', ');
         for (var i = 0; i < appendList.length; i++) {
             historyName[i].textContent = appendList[i];
             historyButtons[i].classList.remove('invisible');
-            // historyButtons[i].addEventListener("click", historySearch);
+            historyButtons[i].addEventListener("click", function (event) {
+                historySearch(event.target.textContent);
+            });
         }
     } else {
         var appendList = searchHistory.split(', ');
         for (var i = 0; i < 10; i++) {
             historyName[i].textContent = appendList[i];
             historyButtons[i].classList.remove('invisible');
-            // historyButtons[i].addEventListener("click", historySearch);
+            console.log(appendList[i]);
+            historyButtons[i].addEventListener("click", function (event) {
+                console.warn('Warn Here');
+                historySearch(event.target.textContent);
+            });
         }
     }
 };
