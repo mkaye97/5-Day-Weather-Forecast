@@ -1,5 +1,7 @@
 # 5-Day-Weather-Forecast
 
+This application allows a user to search the name of a city, and the page will return the weather data for the next 5 middays that have not yet occured. If the user searches at 9 AM, it will return todays weather and the next 4 days. If they search at 3 PM, the data will start with the following day.
+
 ## User Story
 
 ```
@@ -21,3 +23,13 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
+
+## Screenshots
+
+![Password Generator Screenshot](/images/forecastScreeshot.png)
+
+![Password Generator Screenshot](/images/forecastScreeshotEmpty.png)
+
+## Links
+
+Deployemnt Link: https://mkaye97.github.io/5-Day-Weather-Forecast/
