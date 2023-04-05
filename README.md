@@ -26,9 +26,9 @@ THEN I am again presented with current and future conditions for that city
 
 ## Screenshots
 
-![Password Generator Screenshot](/images/forecastScreeshot.png)
+![Screenshot Before Use](./images/forecastScreeshotEmpty.png)
 
-![Password Generator Screenshot](/images/forecastScreeshotEmpty.png)
+![Screenshot After Use](./images/forecastScreeshot.png)
 
 ## Links
 
