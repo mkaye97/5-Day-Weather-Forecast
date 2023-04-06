@@ -5,6 +5,11 @@ var forecastCity = document.getElementById('city-name');
 var searchButton = document.getElementById('search-button');
 var searchList = document.getElementById('codes');
 var forecast = document.getElementById('forecast');
+var currContainer = document.getElementById('curr-container');
+var currIcon = document.getElementById('icon-now');
+var currTemp = document.getElementById('temp-now');
+var currWind = document.getElementById('wind-now');
+var currHumidity = document.getElementById('humid-now');
 var days = document.getElementsByClassName('date');
 var icon = document.getElementsByClassName('icon');
 var temp = document.getElementsByClassName('temp');
@@ -43,6 +48,12 @@ function newWeatherPost(coor1, coor2) {
         .then(function (response) {
             response.json().then(function (data) {
                 console.log(data);
+                currIcon.src = 'http://openweathermap.org/img/w/' + data.list[0].weather[0].icon + '.png';
+                currIcon.alt = data.list[0].weather[0].main;
+                currTemp.textContent = data.list[0].main.temp + '°F';
+                currWind.textContent = data.list[0].wind.speed + ' MPH';
+                currHumidity.textContent = data.list[0].main.humidity + '% Humidity';
+                currContainer.classList.remove('invisible');
                 weatherData = []
                 for (var i = 0; i < data.list.length; i++) {
                     var arry = data.list[i].dt_txt.split(' ')

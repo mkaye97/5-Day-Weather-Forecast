@@ -13,7 +13,7 @@
   <header class="navbar bg-primary">
     <nav class="container-fluid">
       <span class="navbar-brand mb-0 h1">
-        <h1>Kaye Weather Forecast</h1>
+        <h1>Weather or Not!</h1>
       </span>
     </nav>
   </header>
@@ -23,7 +23,7 @@
     <div class="form-floating mb-3 col-12 col-md-3">
       <input type="input" class="form-control" id="cityInput" placeholder="Search for a city...">
       <label for="floatingInput">Search for a city...</label>
-      
+
       <br>
       <button id="search-button" type="button" class="btn btn-secondary col-12">Search</button>
       <br>
@@ -88,13 +88,22 @@
     <div class="card col-12 col-md-9">
       <h3 class="card-header">Today's Weather</h3>
       <div class="card-body">
-        <h5 class="card-title" id="city-name"></h5>
+        <div id="curr-container" class="row invisible">
+          <h5 class="card-title" id="city-name"></h5>
+          <p class="col">Current Conditions: </p>
+          <div class="col">
+            <img src="" alt="" id="icon-now" />
+          </div>
+          <p id="temp-now" class="col">Text</p>
+          <p id="wind-now" class="col">Text</p>
+          <p id="humid-now" class="col">Text</p>
+        </div>
         <ul class="row justify-content-center invisible" id="forecast">
           <!-- Insert 5 Day Forecast Line Items -->
           <li class="card col">
             <div class="card-body mx-auto">
               <h5 class="card-title date">Card title</h5>
-              <img src="" alt="" class="icon"/>
+              <img src="" alt="" class="icon" />
               <p class="card-text temp"></p>
               <p class="card-text wind"></p>
               <p class="card-text humid"></p>
@@ -102,8 +111,8 @@
           </li>
           <li class="card col">
             <div class="card-body mx-auto">
-              <h5 class="card-title date">Card title</h5>
-              <img src="" alt="" class="icon"/>
+              <h5 class="card-title date"></h5>
+              <img src="" alt="" class="icon" />
               <p class="card-text temp"></p>
               <p class="card-text wind"></p>
               <p class="card-text humid"></p>
@@ -111,8 +120,8 @@
           </li>
           <li class="card col">
             <div class="card-body mx-auto">
-              <h5 class="card-title date">Card title</h5>
-              <img src="" alt="" class="icon"/>
+              <h5 class="card-title date"></h5>
+              <img src="" alt="" class="icon" />
               <p class="card-text temp"></p>
               <p class="card-text wind"></p>
               <p class="card-text humid"></p>
@@ -120,8 +129,8 @@
           </li>
           <li class="card col">
             <div class="card-body mx-auto">
-              <h5 class="card-title date">Card title</h5>
-              <img src="" alt="" class="icon"/>
+              <h5 class="card-title date"></h5>
+              <img src="" alt="" class="icon" />
               <p class="card-text temp"></p>
               <p class="card-text wind"></p>
               <p class="card-text humid"></p>
@@ -129,8 +138,8 @@
           </li>
           <li class="card col">
             <div class="card-body mx-auto">
-              <h5 class="card-title date">Card title</h5>
-              <img src="" alt="" class="icon"/>
+              <h5 class="card-title date"></h5>
+              <img src="" alt="" class="icon" />
               <p class="card-text temp"></p>
               <p class="card-text wind"></p>
               <p class="card-text humid"></p>

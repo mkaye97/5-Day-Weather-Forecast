@@ -28,7 +28,7 @@ THEN I am again presented with current and future conditions for that city
 
 ![Screenshot Before Use](./images/noHistory.png)
 
-![Screenshot After Use](./images/forecastScreenshot.png)
+![Screenshot After Use](./images/forecastScreenshotFinished.png)
 
 ## Links
 
